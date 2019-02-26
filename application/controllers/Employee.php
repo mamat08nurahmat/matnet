@@ -716,6 +716,15 @@ AND IsDiscontinued=0
 
 
 //===============================================================================
+	//
+	public function detail(){
+		
+		$this->load->helper('url');	
+		$this->load->view('employee/employee_detail');
+		
+		
+	}
+
 // sample data tables defer_render
 	public function defer_render(){
 		
@@ -915,6 +924,25 @@ AND IsDiscontinued=0
 	}
 	
 
+
+		public function ajax_employee_detail($id)
+	{
+//		$this->load->model('employee_model','employee');
+//		$data = $this->employee->get_by_id($id);
+
+
+
+		$data = $this->db->query("
+SELECT * FROM vw_employee_detail		
+		WHERE EmployeeID='$id'
+		
+		")->row();
+		
+		echo json_encode($data);
+	}
+
+	
+	
 
 	
 		public function ajax_edit_asp($id)
