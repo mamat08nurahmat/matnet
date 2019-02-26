@@ -20,6 +20,8 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+	//	$this->load->view('welcome_message');
+	print_r($this->db->query("SELECT TOP 5 * FROM Agency")->result());
+	
 	}
 }
